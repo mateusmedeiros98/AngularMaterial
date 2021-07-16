@@ -1,0 +1,71 @@
+<div class="container">
+    <mat-toolbar>
+       <span>Adicionar Usuário</span>
+      </mat-toolbar>
+
+      <mat-card style="margin-top: 10px;">
+        <form [formGroup]="form" (ngSubmit)="addUser()">
+
+            <mat-grid-list cols="4" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" rowspan="1">
+                    <mat-form-field class="width">
+                        <mat-label>Usuário</mat-label>
+                        <input matInput formControlName="user">
+                    </mat-form-field> 
+                </mat-grid-tile>
+                
+
+                <mat-grid-tile [colspan]="3" rowspan="5" >
+                    <img src="./assets/img/user.png" width="250px" hegiht="250px" alt="">
+                </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" rowspan="1" >
+                    <mat-form-field class="width">
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field> 
+                   </mat-grid-tile>
+
+                   <mat-grid-tile [colspan]="1" rowspan="1" >
+                     <mat-form-field class="width">
+                        <mat-label>Sobrenome</mat-label>
+                        <input matInput formControlName="lastName">
+                    </mat-form-field> 
+                   </mat-grid-tile>
+
+                   <mat-grid-tile [colspan]="1" rowspan="1" >
+                     <mat-form-field class="width">
+
+                      
+                            <mat-label>Sexo</mat-label>
+                            <mat-select formControlName="gender">
+                              <mat-option *ngFor="let item of sexo" [value]="item">
+                                {{item}}
+                              </mat-option>
+                            </mat-select>
+                            
+                 
+
+                    </mat-form-field> 
+                   </mat-grid-tile>
+
+                   
+                   <mat-grid-tile [colspan]="1" rowspan="1" >
+                    <button  routerLink="/dashboard/users" mat-button color style="margin-right:20px ;" >Cancelar</button>
+
+                    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Confirmar</button>
+
+
+                   </mat-grid-tile>
+               
+              </mat-grid-list>
+
+            <br>
+            <mat-grid-list cols="4" rowHeight="100px">
+              
+                
+              </mat-grid-list>
+        </form>    
+    </mat-card>
+    
+</div>
